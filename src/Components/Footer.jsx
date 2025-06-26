@@ -79,7 +79,7 @@ export default function Footer() {
                   className="fas fa-phone mr-2"
                   style={{ color: "var(--secondary)" }}
                 ></i>
-                <span>+1 (234) 567-8900</span>
+                <span>+(234) 814 971 3412</span>
               </li>
               <li className="flex items-center justify-center md:justify-start">
                 <i

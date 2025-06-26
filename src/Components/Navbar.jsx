@@ -11,6 +11,7 @@ import {
   FaPhone,
 } from "react-icons/fa";
 import { GiScissors } from "react-icons/gi";
+import Link from "next/link";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -25,11 +26,12 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "Home", icon: <FaHome />, href: "#" },
-    { name: "Services", icon: <GiScissors />, href: "#" },
-    { name: "Gallery", icon: <FaImages />, href: "#" },
-    { name: "Testimonials", icon: <FaStar />, href: "#" },
-    { name: "Contact", icon: <FaPhone />, href: "#" },
+    { name: "Home", icon: <FaHome />, href: "/" },
+    { name: "Services", icon: <GiScissors />, href: "/services" },
+    { name: "Gallery", icon: <FaImages />, href: "/gallery" },
+    { name: "Testimonials", icon: <FaStar />, href: "/gallery" },
+    { name: "Contact", icon: <FaPhone />, href: "/contact" },
+    { name: "Logo", icon: <FaPhone />, href: "/" },
   ];
 
   const mobileMenuVariants = {
@@ -61,81 +63,69 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <motion.div
-            className="flex items-center"
-            whileHover={{ scale: 1.05 }}
-          >
+          <Link href="/">
             <span
               style={{ color: "var(--secondary)" }}
-              className="text-2xl mr-2"
+              className="text-3xl cursor-pointer"
+              aria-label="Home"
             >
               ✂
             </span>
-            <span
-              style={{ color: "var(--background)" }}
-              className="font-bold text-xl"
-            >
-              LOGO
-            </span>
-          </motion.div>
+          </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center space-x-8">
             <div className="relative flex space-x-8">
               {navLinks.map((link) => (
-                <motion.a
-                  key={link.name}
-                  href={link.href}
-                  style={{ color: "var(--background)" }}
-                  className="hover:underline transition-colors relative group"
-                  whileHover={{ scale: 1.05 }}
-                  onMouseEnter={(e) =>
-                    (e.currentTarget.style.color = "var(--secondary)")
-                  }
-                  onMouseLeave={(e) =>
-                    (e.currentTarget.style.color = "var(--background)")
-                  }
-                >
-                  {link.name}
-                  {/* Underline animation */}
-                  <motion.span
-                    className="absolute bottom-0 left-0 w-full h-0.5"
-                    style={{ backgroundColor: "var(--secondary)" }}
-                    initial={{ width: 0 }}
-                    whileHover={{ width: "100%" }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </motion.a>
+                <Link href={link.href} key={link.name}>
+                  <span
+                    style={{ color: "var(--background)" }}
+                    className="hover:underline transition-colors relative group cursor-pointer"
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.color = "var(--secondary)")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.color = "var(--background)")
+                    }
+                  >
+                    {link.name}
+                    {/* Underline animation */}
+                    <span
+                      className="absolute bottom-0 left-0 w-full h-0.5"
+                      style={{
+                        backgroundColor: "var(--secondary)",
+                        width: 0,
+                        transition: "width 0.3s",
+                      }}
+                    />
+                  </span>
+                </Link>
               ))}
             </div>
-            <motion.button
+            <button
               style={{
                 backgroundColor: "var(--secondary)",
                 color: "var(--background)",
               }}
               className="ml-4 px-4 py-2 rounded-md hover:bg-opacity-90 transition-colors"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
             >
               Book Now
-            </motion.button>
+            </button>
           </nav>
 
           {/* Mobile Toggle */}
-          <motion.button
+          <button
             id="mobile-menu-button"
             style={{ color: "var(--background)" }}
             className="md:hidden focus:outline-none"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            whileTap={{ scale: 0.9 }}
           >
             {isMobileMenuOpen ? (
               <FaTimes className="text-2xl" />
             ) : (
               <FaBars className="text-2xl" />
             )}
-          </motion.button>
+          </button>
         </div>
       </div>
 
@@ -151,46 +141,38 @@ export default function Navbar() {
             exit={{ height: 0, opacity: 0 }}
             transition={{ type: "spring", damping: 25 }}
           >
-            <motion.div
-              className="container mx-auto px-4 py-3"
-              variants={mobileMenuVariants}
-              initial="hidden"
-              animate="visible"
-            >
+            <div className="container mx-auto px-4 py-3">
               {navLinks.map((link, index) => (
-                <motion.a
-                  key={link.name}
-                  href={link.href}
-                  style={{
-                    color: "var(--accent)",
-                    borderBottom: "1px solid var(--secondary)",
-                  }}
-                  className="block py-3 flex items-center transition-colors"
-                  variants={mobileLinkVariants}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  onMouseEnter={(e) =>
-                    (e.currentTarget.style.color = "var(--secondary)")
-                  }
-                  onMouseLeave={(e) =>
-                    (e.currentTarget.style.color = "var(--accent)")
-                  }
-                >
-                  <span className="mr-3">{link.icon}</span>
-                  {link.name}
-                </motion.a>
+                <Link href={link.href} key={link.name}>
+                  <span
+                    style={{
+                      color: "var(--accent)",
+                      borderBottom: "1px solid var(--secondary)",
+                    }}
+                    className="block py-3 flex items-center transition-colors cursor-pointer"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.color = "var(--secondary)")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.color = "var(--accent)")
+                    }
+                  >
+                    <span className="mr-3">{link.icon}</span>
+                    {link.name}
+                  </span>
+                </Link>
               ))}
-              <motion.button
+              <button
                 style={{
                   backgroundColor: "var(--secondary)",
                   color: "var(--background)",
                 }}
                 className="w-full mt-4 px-4 py-2 rounded-md hover:bg-opacity-90 transition-colors"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
               >
                 Book Now
-              </motion.button>
-            </motion.div>
+              </button>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
