@@ -16,6 +16,7 @@ import Link from "next/link";
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const whatsappNumber = "2348149713412";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,7 +32,6 @@ export default function Navbar() {
     { name: "Gallery", icon: <FaImages />, href: "/gallery" },
     { name: "Testimonials", icon: <FaStar />, href: "/gallery" },
     { name: "Contact", icon: <FaPhone />, href: "/contact" },
-    { name: "Logo", icon: <FaPhone />, href: "/" },
   ];
 
   const mobileMenuVariants = {
@@ -102,7 +102,10 @@ export default function Navbar() {
                 </Link>
               ))}
             </div>
-            <button
+            <a
+              href={`https://wa.me/${whatsappNumber}?text=Hi%2C%20I'd%20like%20to%20book%20a%20haircut`}
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
                 backgroundColor: "var(--secondary)",
                 color: "var(--background)",
@@ -110,7 +113,7 @@ export default function Navbar() {
               className="ml-4 px-4 py-2 rounded-md hover:bg-opacity-90 transition-colors"
             >
               Book Now
-            </button>
+            </a>
           </nav>
 
           {/* Mobile Toggle */}
@@ -163,15 +166,18 @@ export default function Navbar() {
                   </span>
                 </Link>
               ))}
-              <button
+              <a
+                href={`https://wa.me/${whatsappNumber}?text=Hi%2C%20I'd%20like%20to%20book%20a%20haircut`}
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{
                   backgroundColor: "var(--secondary)",
                   color: "var(--background)",
                 }}
-                className="w-full mt-4 px-4 py-2 rounded-md hover:bg-opacity-90 transition-colors"
+                className="w-full mt-4 px-4 py-2 rounded-md hover:bg-opacity-90 transition-colors block text-center"
               >
                 Book Now
-              </button>
+              </a>
             </div>
           </motion.div>
         )}

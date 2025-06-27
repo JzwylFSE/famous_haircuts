@@ -1,63 +1,62 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaArrowRight, FaUser, FaPaintBrush } from "react-icons/fa";
-import { GiScissors, GiBeard, GiShield } from "react-icons/gi";
+import { FaArrowRight } from "react-icons/fa";
+import Image from "next/image";
 
 const services = [
+  {
+    name: "Home Service",
+    price: "₦7000",
+    desc: "Get a professional haircut at the comfort of your home. We come to you!",
+    image: "/images/homeservice.jpg", 
+  },
   {
     name: "Classic Haircut",
     price: "₦5000",
     desc: "Traditional cut with scissor and clipper blend for a polished look",
-    icon: <GiScissors />,
-    image: "/classic-cut.jpg",
+    image: "/images/seventeen.jpg",
   },
   {
     name: "Clean Fade",
     price: "₦3000",
     desc: "Precision fade from skin to length with sharp lines",
-    icon: <GiScissors />,
-    image: "/fade.jpg",
+    image: "/images/four(copy).jpg",
   },
   {
     name: "Children's Cut",
     price: "₦2000",
     desc: "Gentle cuts designed for young clients with fun styles",
-    icon: <FaUser />,
-    image: "/kids-cut.jpg",
+    image: "/images/kids.jpg",
   },
   {
     name: "Lineup & Beard Trim",
     price: "₦1500",
     desc: "Sharp edges and perfectly shaped facial hair",
-    icon: <GiBeard />,
-    image: "/beard-trim.jpg",
+    image: "/images/beardtrim.jpg",
   },
   {
     name: "Hair Colouring",
     price: "₦1500",
     desc: "Professional coloring for vibrant or natural looks",
-    icon: <FaPaintBrush />,
-    image: "/coloring.jpg",
+    image: "/images/color.jpg",
   },
   {
     name: "Hair Design",
     price: "₦2000",
     desc: "Creative patterns and artistic designs in your cut",
-    icon: <FaPaintBrush />,
-    image: "/hair-design.jpg",
+    image: "/images/hairdesign.jpg",
   },
   {
     name: "Hair Treatment",
     price: "₦1500",
     desc: "Revitalizing treatments for healthy, strong hair",
-    icon: <GiShield />,
     image: "/treatment.jpg",
   },
 ];
 
 export default function ServicesPage() {
-  const whatsappNumber = "2348149713412"; 
+  const whatsappNumber = "2348149713412";
 
   return (
     <div
@@ -116,8 +115,18 @@ export default function ServicesPage() {
               >
                 {/* Service Image */}
                 <div className="h-48 bg-gray-200 relative overflow-hidden">
+                  <Image
+                    src={service.image}
+                    alt={service.name}
+                    fill
+                    style={{ objectFit: "cover" }}
+                    sizes="(max-width: 768px) 100vw,
+                           (max-width: 1200px) 50vw,
+                           33vw"
+                    priority={index === 0}
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-                  <div className="w-full h-full flex items-center justify-center text-6xl">
+                  <div className="w-full h-full flex items-center justify-center text-6xl z-10 relative">
                     {service.icon}
                   </div>
                 </div>

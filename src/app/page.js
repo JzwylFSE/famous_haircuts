@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { FaScissors, FaHome, FaCamera, FaQuoteLeft } from "react-icons/fa";
+import Image from "next/image";
 
 export default function Home() {
   const services = [
@@ -72,45 +73,88 @@ export default function Home() {
     );
   };
 
+  const whatsappNumber = "2348149713412";
+
+  const galleryImages = [
+    "/images/transform1.jpg",
+    "/images/transform2.jpg",
+    // add more if you want
+  ];
+  const [bgIndex, setBgIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBgIndex((prev) => (prev + 1) % galleryImages.length);
+    }, 3000); // change every 3 seconds
+    return () => clearInterval(interval);
+  }, [galleryImages.length]);
+
   return (
     <div className="flex flex-col">
       {/* Section 1: Hero */}
       <motion.section
-        className="min-h-screen flex flex-col items-center justify-center px-4 sm:px-8"
-        style={{ backgroundColor: "var(--background)" }}
+        className="min-h-screen flex flex-col items-center justify-center px-4 sm:px-8 relative"
+        style={{
+          backgroundColor: "var(--background)",
+          overflow: "hidden",
+        }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        <motion.h1
-          className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 text-center"
-          style={{ color: "var(--secondary)" }}
-          initial={{ y: -50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.7, type: "spring" }}
-        >
-          Welcome to Famous Haircuts
-        </motion.h1>
-        <motion.p
-          className="text-base sm:text-lg md:text-xl mb-6 text-center max-w-xl"
-          style={{ color: "var(--primary)" }}
-          initial={{ x: -50, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ delay: 0.6, duration: 0.7, type: "spring" }}
-        >
-          Discover iconic styles and trends.
-        </motion.p>
-        <motion.button
-          className="px-4 py-2 sm:px-6 sm:py-3 rounded text-base sm:text-lg font-semibold"
-          style={{ backgroundColor: "var(--secondary)", color: "var(--white)" }}
-          whileHover={{ scale: 1.1, boxShadow: "0 4px 20px rgba(0,0,0,0.15)" }}
-          whileTap={{ scale: 0.95 }}
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.9, duration: 0.5 }}
-        >
-          Book Now
-        </motion.button>
+        {/* Background Image */}
+        <Image
+          src="/images/heropic.jpg"
+          alt="Hero background"
+          fill
+          style={{
+            objectFit: "cover",
+            zIndex: 0,
+            opacity: 0.35,
+          }}
+          priority
+        />
+        {/* Overlay for content */}
+        <div className="relative z-10 flex flex-col items-center w-full">
+          <motion.h1
+            className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 text-center"
+            style={{ color: "var(--secondary)" }}
+            initial={{ y: -50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.7, type: "spring" }}
+          >
+            Welcome to Famous Haircuts
+          </motion.h1>
+          <motion.p
+            className="text-base sm:text-lg md:text-xl mb-6 text-center max-w-xl"
+            style={{ color: "var(--primary)" }}
+            initial={{ x: -50, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.6, duration: 0.7, type: "spring" }}
+          >
+            Discover iconic styles and trends.
+          </motion.p>
+          <motion.a
+            href={`https://wa.me/${whatsappNumber}?text=Hi%2C%20I'd%20like%20to%20book%20a%20haircut`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 sm:px-6 sm:py-3 rounded text-base sm:text-lg font-semibold inline-block"
+            style={{
+              backgroundColor: "var(--secondary)",
+              color: "var(--white)",
+            }}
+            whileHover={{
+              scale: 1.1,
+              boxShadow: "0 4px 20px rgba(0,0,0,0.15)",
+            }}
+            whileTap={{ scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.9, duration: 0.5 }}
+          >
+            Book Now
+          </motion.a>
+        </div>
       </motion.section>
 
       {/* Section 2: Passion */}
@@ -292,8 +336,21 @@ export default function Home() {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-[url('/grid-pattern.svg')]"></div>
+        {/* Layered background images */}
+        <div className="absolute inset-0 pointer-events-none">
+          <Image
+            src={galleryImages[bgIndex]}
+            alt="Gallery background"
+            fill
+            style={{
+              objectFit: "cover",
+              zIndex: 0,
+              opacity: 0.35,
+              transition: "opacity 0.8s",
+            }}
+            priority
+          />
+          <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10"></div>
         </div>
 
         <div className="container mx-auto max-w-6xl text-center relative z-10">
@@ -333,6 +390,7 @@ export default function Home() {
                 }}
               >
                 View Gallery
+                {/* Use a self-closing SVG tag */}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5"
