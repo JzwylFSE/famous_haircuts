@@ -13,10 +13,11 @@ import {
 import { GiScissors } from "react-icons/gi";
 import Link from "next/link";
 
+const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
+
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const whatsappNumber = "2348149713412";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,7 +31,7 @@ export default function Navbar() {
     { name: "Home", icon: <FaHome />, href: "/" },
     { name: "Services", icon: <GiScissors />, href: "/services" },
     { name: "Gallery", icon: <FaImages />, href: "/gallery" },
-    { name: "Testimonials", icon: <FaStar />, href: "/gallery" },
+    { name: "Testimonials", icon: <FaStar />, href: "/testimonials" },
     { name: "Contact", icon: <FaPhone />, href: "/contact" },
   ];
 
