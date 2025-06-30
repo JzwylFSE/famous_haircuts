@@ -148,9 +148,11 @@ export default function Footer() {
           <p>
             © 2025 by Famous Haircuts. Designed by{" "}
             <a
-              href="#"
+              href="https://www.instagram.com/iam_jzwyl/"
               className="hover:underline"
               style={{ color: "var(--secondary)" }}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               iam_jzwyl
             </a>

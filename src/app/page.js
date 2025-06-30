@@ -473,6 +473,27 @@ export default function Home() {
                 />
               ))}
             </div>
+
+            {/* See More Testimonials Button */}
+            <div className="flex justify-center mt-8">
+              <a
+                href="/testimonials"
+                className="px-6 py-2 rounded-md font-semibold text-base"
+                style={{
+                  backgroundColor: "var(--secondary)",
+                  color: "var(--background)",
+                  boxShadow: "0 2px 8px 0 var(--secondary)",
+                  transition: "box-shadow 0.3s",
+                }}
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0 4px 16px 0 var(--secondary)",
+                }}
+                whileTap={{ scale: 0.97 }}
+              >
+                See More Testimonials
+              </a>
+            </div>
           </div>
         </div>
       </motion.section>

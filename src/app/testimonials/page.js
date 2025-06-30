@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const testimonials = [
   {
     name: "gigisbizhive",
-    comment: "No one does like like famous 😍",
+    comment: "No one does it like famous 😍",
   },
   {
     name: "kaseh_akobe",
@@ -17,23 +17,15 @@ const testimonials = [
   },
   {
     name: "ericzii",
-    comment: "My plug, The flyest barber around 🙌",
+    comment: "The flyest barber around 🙌",
+  },
+  {
+    name: "ericzii",
+    comment: "My plug",
   },
   {
     name: "kordeeishim",
     comment: "Always on point with the cuts!",
-  },
-  {
-    name: "jessicadawn",
-    comment: "The best salon experience I've ever had!",
-  },
-  {
-    name: "mikeb123",
-    comment: "Famous Haircuts never disappoints.",
-  },
-  {
-    name: "sarah_connor",
-    comment: "I feel fabulous every time I leave this place.",
   },
 ];
 

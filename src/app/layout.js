@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Famous_haircuts",
+  title: "Famoushaircuts",
   description: "Feel the famous touch",
 };
 
