@@ -44,22 +44,19 @@ export default function Home() {
 
   const testimonials = [
     {
-      name: "James K.",
-      role: "Regular Client",
-      text: "Famous Haircuts transformed my look completely. The precision fades are unmatched in the city!",
-      image: "/client1.jpg",
+      name: "gigisbizhive",
+      text: "No one does like like famous 😍",
+      role: "",
     },
     {
-      name: "Marcus D.",
-      role: "New Client",
-      text: "First time getting a home service cut and I'm blown away by the attention to detail. Will book again!",
-      image: "/client2.jpg",
+      name: "kaseh_akobe",
+      text: "only one Famous haircuts",
+      role: "",
     },
     {
-      name: "Terry O.",
-      role: "Long-time Client",
-      text: "Been coming here for 3 years. Consistent quality every single time. That's why I keep returning.",
-      image: "/client3.jpg",
+      name: "thatdanieldon",
+      text: "Number 1 barber! 🙌🔥",
+      role: "",
     },
   ];
 
