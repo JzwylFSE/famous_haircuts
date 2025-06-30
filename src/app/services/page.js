@@ -9,54 +9,62 @@ const services = [
     name: "Home Service",
     price: "₦7000",
     desc: "Get a professional haircut at the comfort of your home. We come to you!",
-    image: "/images/homeservice.jpg", 
+    image: "/images/homeservice.jpg",
+    duration: "2h",
   },
   {
     name: "Classic Haircut",
     price: "₦5000",
     desc: "Traditional cut with scissor and clipper blend for a polished look",
     image: "/images/seventeen.jpg",
+    duration: "1hr",
   },
   {
     name: "Clean Fade",
     price: "₦3000",
     desc: "Precision fade from skin to length with sharp lines",
     image: "/images/four(copy).jpg",
+    duration: "50mins",
   },
   {
     name: "Children's Cut",
     price: "₦2000",
     desc: "Gentle cuts designed for young clients with fun styles",
     image: "/images/kids.jpg",
+    duration: "35mins",
   },
   {
     name: "Lineup & Beard Trim",
     price: "₦1500",
     desc: "Sharp edges and perfectly shaped facial hair",
     image: "/images/beardtrim.jpg",
+    duration: "40mins",
   },
   {
     name: "Hair Colouring",
     price: "₦1500",
     desc: "Professional coloring for vibrant or natural looks",
     image: "/images/color.jpg",
+    duration: "1hr",
   },
   {
     name: "Hair Design",
     price: "₦2000",
     desc: "Creative patterns and artistic designs in your cut",
     image: "/images/hairdesign.jpg",
+    duration: "30mins",
   },
   {
     name: "Hair Treatment",
     price: "₦1500",
     desc: "Revitalizing treatments for healthy, strong hair",
-    image: "/treatment.jpg",
+    image: "/images/treatment.jpg",
+    duration: "1hr",
   },
 ];
 
 export default function ServicesPage() {
-  const whatsappNumber = "2348149713412";
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
 
   return (
     <div
@@ -152,6 +160,12 @@ export default function ServicesPage() {
                   </div>
                   <p className="mb-4" style={{ color: "var(--primary)" }}>
                     {service.desc}
+                  </p>
+                  <p
+                    className="mb-4 text-sm font-semibold"
+                    style={{ color: "var(--tertiary)" }}
+                  >
+                    Duration: {service.duration}
                   </p>
                   <motion.a
                     href={`https://wa.me/${whatsappNumber}?text=Hi%2C%20I'd%20like%20to%20book%20a%20${encodeURIComponent(

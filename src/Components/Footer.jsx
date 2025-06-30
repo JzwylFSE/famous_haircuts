@@ -39,14 +39,37 @@ export default function Footer() {
             </p>
             <div className="flex space-x-4">
               {[
-                { icon: <FaInstagram />, color: "#E1306C" },
-                { icon: <FaWhatsapp />, color: "#25D366" },
-                { icon: <FaSnapchat />, color: "#FFFC00" },
-                { icon: <FaXTwitter />, color: "var(--background)" },
+                {
+                  icon: <FaInstagram />,
+                  color: "#E1306C",
+                  href: "https://www.instagram.com/famous_haircut01/",
+                  label: "Instagram",
+                },
+                {
+                  icon: <FaWhatsapp />,
+                  color: "#25D366",
+                  href: "https://wa.me/2348149713412",
+                  label: "WhatsApp",
+                },
+                {
+                  icon: <FaSnapchat />,
+                  color: "#FFFC00",
+                  href: "#",
+                  label: "Snapchat",
+                },
+                {
+                  icon: <FaXTwitter />,
+                  color: "var(--background)",
+                  href: "#",
+                  label: "Twitter",
+                },
               ].map((social, index) => (
                 <motion.a
                   key={index}
-                  href="#"
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
                   className="text-2xl p-2 rounded-full"
                   style={{ backgroundColor: "var(--secondary)" }}
                   whileHover={{ y: -3, scale: 1.1 }}

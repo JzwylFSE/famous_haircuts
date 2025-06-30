@@ -2,18 +2,38 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { FaScissors, FaHome, FaCamera, FaQuoteLeft } from "react-icons/fa";
+import { FaHome, FaCamera, FaQuoteLeft } from "react-icons/fa";
 import Image from "next/image";
+
+const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
 
 export default function Home() {
   const services = [
     {
       name: "Taper Cut",
       desc: "Sharp, clean lines with gradual fading",
+      icon: (
+        <Image
+          src="/images/three.jpg"
+          alt="Taper Cut"
+          width={120}
+          height={120}
+          className="rounded-full object-cover"
+        />
+      ),
     },
     {
       name: "Round Cut",
       desc: "Classic rounded shape for timeless style",
+      icon: (
+        <Image
+          src="/images/twentyone.2.jpg"
+          alt="Taper Cut"
+          width={120}
+          height={120}
+          className="rounded-full object-cover"
+        />
+      ),
     },
     {
       name: "Home Service",
@@ -48,7 +68,6 @@ export default function Home() {
 
   // Auto-slide logic
   useEffect(() => {
-    // Clear any existing interval
     if (intervalRef.current) clearInterval(intervalRef.current);
 
     intervalRef.current = setInterval(() => {
@@ -73,25 +92,19 @@ export default function Home() {
     );
   };
 
-  const whatsappNumber = "2348149713412";
-
-  const galleryImages = [
-    "/images/transform1.jpg",
-    "/images/transform2.jpg",
-    // add more if you want
-  ];
+  const galleryImages = ["/images/transform1.jpg", "/images/transform2.jpg"];
   const [bgIndex, setBgIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setBgIndex((prev) => (prev + 1) % galleryImages.length);
-    }, 3000); // change every 3 seconds
+    }, 3000);
     return () => clearInterval(interval);
   }, [galleryImages.length]);
 
   return (
     <div className="flex flex-col">
-      {/* Section 1: Hero */}
+      {/* Hero section */}
       <motion.section
         className="min-h-screen flex flex-col items-center justify-center px-4 sm:px-8 relative"
         style={{
@@ -110,7 +123,7 @@ export default function Home() {
           style={{
             objectFit: "cover",
             zIndex: 0,
-            opacity: 0.35,
+            opacity: 0.5,
           }}
           priority
         />
@@ -134,6 +147,7 @@ export default function Home() {
           >
             Discover iconic styles and trends.
           </motion.p>
+          {/* --- Book Now button --- */}
           <motion.a
             href={`https://wa.me/${whatsappNumber}?text=Hi%2C%20I'd%20like%20to%20book%20a%20haircut`}
             target="_blank"
@@ -144,10 +158,10 @@ export default function Home() {
               color: "var(--white)",
             }}
             whileHover={{
-              scale: 1.1,
-              boxShadow: "0 4px 20px rgba(0,0,0,0.15)",
+              scale: 1.05,
+              boxShadow: "0 4px 16px 0 var(--secondary)",
             }}
-            whileTap={{ scale: 0.95 }}
+            whileTap={{ scale: 0.97 }}
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.9, duration: 0.5 }}
@@ -197,38 +211,6 @@ export default function Home() {
               confidence. That moment when the cape comes off and the client
               smiles - that's why I do this.
             </motion.p>
-
-            <motion.div
-              whileHover={{
-                scale: 1.08,
-                boxShadow:
-                  "0 0 24px 4px var(--secondary), 0 2px 8px rgba(0,0,0,0.10)",
-                transition: { type: "spring", stiffness: 400, damping: 10 },
-              }}
-              whileTap={{ scale: 0.96 }}
-              className="inline-block mt-8"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, type: "spring" }}
-              viewport={{ once: true }}
-            >
-              <motion.a
-                href="/services"
-                className="px-8 py-3 rounded-md font-medium text-lg"
-                style={{
-                  backgroundColor: "var(--secondary)",
-                  color: "var(--background)",
-                  boxShadow: "0 0 0px 0px var(--secondary)",
-                  transition: "box-shadow 0.3s",
-                }}
-                whileHover={{
-                  textShadow:
-                    "0 2px 12px var(--background), 0 0 8px var(--secondary)",
-                }}
-              >
-                Explore My Services
-              </motion.a>
-            </motion.div>
           </div>
         </div>
       </motion.section>
@@ -293,19 +275,13 @@ export default function Home() {
             ))}
           </div>
 
+          {/* --- View All Services button --- */}
           <motion.div
             className="text-center mt-12"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6, type: "spring" }}
             viewport={{ once: true }}
-            whileHover={{
-              scale: 1.03,
-              boxShadow:
-                "0 0 8px 2px var(--secondary), 0 1px 4px rgba(0,0,0,0.08)",
-              transition: { type: "spring", stiffness: 300, damping: 18 },
-            }}
-            whileTap={{ scale: 0.98 }}
           >
             <motion.a
               href="/services"
@@ -313,13 +289,14 @@ export default function Home() {
               style={{
                 backgroundColor: "var(--secondary)",
                 color: "var(--background)",
-                boxShadow: "0 0 0px 0px var(--secondary)",
+                boxShadow: "0 2px 8px 0 var(--secondary)",
                 transition: "box-shadow 0.3s",
               }}
               whileHover={{
-                textShadow:
-                  "0 1px 4px var(--background), 0 0 4px var(--secondary)",
+                scale: 1.05,
+                boxShadow: "0 4px 16px 0 var(--secondary)",
               }}
+              whileTap={{ scale: 0.97 }}
             >
               View All Services
             </motion.a>
@@ -376,6 +353,7 @@ export default function Home() {
             >
               See the transformations that keep clients coming back
             </p>
+            {/* --- View Gallery button --- */}
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
