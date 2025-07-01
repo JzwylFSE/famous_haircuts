@@ -146,7 +146,7 @@ export default function Home() {
           </motion.p>
           {/* --- Book Now button --- */}
           <motion.a
-            href={`https://wa.me/${whatsappNumber}?text=Hi%2C%20I'd%20like%20to%20book%20a%20haircut`}
+            href={`https://wa.me/${whatsappNumber}?text=Hi%2C%20I&apos;d%20like%20to%20book%20a%20haircut`}
             target="_blank"
             rel="noopener noreferrer"
             className="px-4 py-2 sm:px-6 sm:py-3 rounded text-base sm:text-lg font-semibold inline-block"
@@ -405,7 +405,7 @@ export default function Home() {
               className="text-lg max-w-2xl mx-auto"
               style={{ color: "var(--primary)" }}
             >
-              Don't just take our word for it
+              Don&apos;t just take our word for it
             </motion.p>
           </div>
 
@@ -439,7 +439,7 @@ export default function Home() {
                     className="text-lg italic mb-4"
                     style={{ color: "var(--primary)" }}
                   >
-                    "{testimonials[currentTestimonial].text}"
+                    &quot;{testimonials[currentTestimonial].text}&quot;
                   </p>
                   <div>
                     <p
