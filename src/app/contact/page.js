@@ -61,7 +61,7 @@ export default function ContactPage() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
         >
-          Book your appointment or ask us anything - we're here to help
+          Book your appointment or ask us anything - we&apos;re here to help
         </motion.p>
       </motion.section>
 
@@ -146,8 +146,8 @@ export default function ContactPage() {
                   <option value="">Select a service</option>
                   <option>Classic Haircut (₦5000)</option>
                   <option>Clean Fade (₦3000)</option>
-                  <option>Children's Cut (₦2000)</option>
-                  <option>Lineup & Beard Trim (₦1500)</option>
+                  <option>Children&apos;s Cut (₦2000)</option>
+                  <option>Lineup &amp; Beard Trim (₦1500)</option>
                   <option>Hair Colouring (₦1500)</option>
                   <option>Hair Design (₦2000)</option>
                   <option>Hair Treatment (₦1500)</option>
