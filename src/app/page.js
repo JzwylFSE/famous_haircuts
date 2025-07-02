@@ -350,7 +350,7 @@ export default function Home() {
             >
               See the transformations that keep clients coming back
             </p>
-            {/* --- View Gallery button --- */}
+            {/* View Gallery button */}
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
@@ -365,7 +365,6 @@ export default function Home() {
                 }}
               >
                 View Gallery
-                {/* Use a self-closing SVG tag */}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5"
@@ -476,7 +475,7 @@ export default function Home() {
 
             {/* See More Testimonials Button */}
             <div className="flex justify-center mt-8">
-              <a
+              <motion.a
                 href="/testimonials"
                 className="px-6 py-2 rounded-md font-semibold text-base"
                 style={{
@@ -492,7 +491,7 @@ export default function Home() {
                 whileTap={{ scale: 0.97 }}
               >
                 See More Testimonials
-              </a>
+              </motion.a>
             </div>
           </div>
         </div>

@@ -181,7 +181,7 @@ const galleryItems = [
     id: 25,
     src: "/images/six.jpg",
     alt: "Taper fade backview",
-    description: "tape fade",
+    description: "taper fade",
     category: "fade",
   },
   {
