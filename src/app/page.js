@@ -144,7 +144,7 @@ export default function Home() {
           >
             Discover iconic styles and trends.
           </motion.p>
-          {/* --- Book Now button --- */}
+          {/* Book Now button */}
           <motion.a
             href={`https://wa.me/${whatsappNumber}?text=Hi%2C%20I&apos;d%20like%20to%20book%20a%20haircut`}
             target="_blank"
