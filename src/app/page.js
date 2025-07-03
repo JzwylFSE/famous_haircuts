@@ -133,7 +133,7 @@ export default function Home() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.7, type: "spring" }}
           >
-            Welcome to Famous Haircuts
+            Welcome to Famous Haircut
           </motion.h1>
           <motion.p
             className="text-base sm:text-lg md:text-xl mb-6 text-center max-w-xl"

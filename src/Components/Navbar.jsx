@@ -70,7 +70,7 @@ export default function Navbar() {
               className="text-3xl cursor-pointer"
               aria-label="Home"
             >
-              ✂
+              FAM✂OUS
             </span>
           </Link>
 
