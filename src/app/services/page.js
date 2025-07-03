@@ -30,7 +30,7 @@ const services = [
     name: "Children's Cut",
     price: "₦2000",
     desc: "Gentle cuts designed for young clients with fun styles",
-    image: "/images/kids.jpg",
+    image: "/images/",
     duration: "35mins",
   },
   {
@@ -44,7 +44,7 @@ const services = [
     name: "Hair Colouring",
     price: "₦1500",
     desc: "Professional coloring for vibrant or natural looks",
-    image: "/images/color.jpg",
+    image: "/images/",
     duration: "1hr",
   },
   {

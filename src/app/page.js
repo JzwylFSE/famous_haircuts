@@ -14,7 +14,7 @@ export default function Home() {
       desc: "Sharp, clean lines with gradual fading",
       icon: (
         <Image
-          src="/images/three.jpg"
+          src="/images/22.jpg"
           alt="Taper Cut"
           width={120}
           height={120}
@@ -23,8 +23,8 @@ export default function Home() {
       ),
     },
     {
-      name: "Round Cut",
-      desc: "Classic rounded shape for timeless style",
+      name: "Low Fade",
+      desc: "Classic rounded fade for a timeless style",
       icon: (
         <Image
           src="/images/twentyone.2.jpg"
